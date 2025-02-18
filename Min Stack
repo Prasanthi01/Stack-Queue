@@ -1,0 +1,35 @@
+class MinStack {
+    stack<int>st;
+    stack<int>ministack;
+public:
+    
+    MinStack() {
+     
+    }
+    
+    void push(int val) {
+        st.push(val);
+        if(ministack.empty() || val<=ministack.top())
+        {
+            ministack.push(val);
+        }
+        
+    }
+    
+    void pop() {
+        if(st.top()==ministack.top())
+        {
+            ministack.pop();
+        }
+        st.pop();
+    }
+    
+    int top() {
+        return st.top();
+    }
+    
+    int getMin() {
+        
+        return ministack.top();
+    }
+};
